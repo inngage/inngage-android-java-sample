@@ -151,7 +151,6 @@ Este código deve ser colocado na sua Activity que é exibida logo após a tela 
 
 
         // Para fazer a integração padrão utilize o método handleSubscription()
-        // Para fazer a integração utlizando campos customizáveis utilize o método handleSubscriptionWithCustomFields()
         handleSubscription();
 
     }
