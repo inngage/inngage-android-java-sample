@@ -3,12 +3,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdk 30
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.example.inngageintegrationjavasample"
         minSdk 26
-        targetSdk 30
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -58,5 +58,5 @@ dependencies {
     //implementation 'com.github.inngage:inngage-lib:3.1.2-beta'
 
     //implementation 'com.github.inngage:inngage-lib:3.0.2-STABLE'
-    implementation 'com.github.inngage:inngage-lib:3.1.2-beta'
+    //implementation 'com.github.inngage:inngage-lib:3.1.2-beta'
 }

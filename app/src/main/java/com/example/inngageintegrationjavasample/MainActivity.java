@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.inngageintegrationjavasample.sdk.InngageIntentService;
+import com.example.inngageintegrationjavasample.sdk.InngageUtils;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import br.com.inngage.sdk.InngageIntentService;
-import br.com.inngage.sdk.InngageUtils;
+//import br.com.inngage.sdk.InngageIntentService;
+//import br.com.inngage.sdk.InngageUtils;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Para fazer a integração padrão utilize o método handleSubscription()
         // Para fazer a integração utlizando campos customizáveis utilize o método handleSubscriptionWithCustomFields()
-        handleSubscription();
+        //handleSubscription();
 
-        //handleSubscriptionWithCustomFields();
+        handleSubscriptionWithCustomFields();
     }
 
     /**
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         InngageIntentService.startInit(
                 this,
                 myInngageAppToken,
-                "userIdentifierExample", //Seu identificador
+                "testelocal", //Seu identificador
                 myInngageEnvironment,
                 myGoogleMessageProvider);
 
@@ -63,9 +66,10 @@ public class MainActivity extends AppCompatActivity {
         try {
             jsonCustomField.put("nome", "jean");
             jsonCustomField.put("email", "jean@gmail.com");
-            jsonCustomField.put("telefone", "");
+            jsonCustomField.put("PHONE_NUMBER", "242423442");
             jsonCustomField.put("dataRegistro", "");
             jsonCustomField.put("dataNascimento", "");
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -77,8 +81,12 @@ public class MainActivity extends AppCompatActivity {
                 "IdentifierWithCustomFields", //Seu identificador
                 myInngageEnvironment,
                 myGoogleMessageProvider,
-                jsonCustomField);
+                jsonCustomField, "fernando@gmail.com","4234433234");
 
         InngageUtils.handleNotification(this, getIntent(), myInngageAppToken, myInngageEnvironment);
+
+
+        InngageIntentService.sendEvent(myInngageAppToken,"IdentifierWithCustomFields","teste");
+
     }
 }

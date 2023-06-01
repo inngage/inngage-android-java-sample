@@ -6,7 +6,9 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import br.com.inngage.sdk.InngageIntentService;
+import com.example.inngageintegrationjavasample.sdk.InngageIntentService;
+
+//import br.com.inngage.sdk.InngageIntentService;
 
 public class SplashActivity extends AppCompatActivity {
 
