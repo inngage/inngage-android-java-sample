@@ -3,6 +3,7 @@ package com.example.inngageintegrationjavasample.sdk;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.RingtoneManager;
@@ -42,7 +43,6 @@ public class PushMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
         if (remoteMessage.getData().size() > 0) {
-
             jsonObject = parseRemoteMessageToJson(remoteMessage);
             Log.d(TAG, "Push received from " + remoteMessage.getFrom());
             showNotification(jsonObject);
@@ -185,15 +185,7 @@ public class PushMessagingService extends FirebaseMessagingService {
                 int id2 = this.getResources().getIdentifier("ic_launcher", "mipmap", this.getPackageName());
                 builder.setSmallIcon(id2);
             }
-//        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ) {
-//
-////            builder.setSmallIcon(id);
-////            builder.setColor(ContextCompat.getColor(getApplicationContext(), android.R.color.transparent));
-//
-//        } else {
-////            int id2 = this.getResources().getIdentifier("ic_notification", "mipmap", this.getPackageName());
-////            builder.setSmallIcon(id2);
-//        }
+
 
             if (!"".equals(bigPicture) && bigPicture != null) {
 
@@ -216,9 +208,9 @@ public class PushMessagingService extends FirebaseMessagingService {
             builder.setSound(defaultSoundUri);
             builder.setContentIntent(pendingIntent);
 
-
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
             notificationManagerCompat.notify(notifyID, builder.build());
+
 
         } catch (Exception e) {
             Log.d(TAG, "Push intent open error");
